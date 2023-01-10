@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- This textview will show the calculated result -->
+    <TextView
+        android:id="@+id/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- This textview will show the string which will be calculated -->
+    <TextView
+        android:id="@+id/primary_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:maxLines="2"
+        android:padding="16dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/colorPrimary"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondary_text" />
+
+    <!-- This layout contains all the buttons -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#48D48C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/primary_text">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/buttonClear"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/ac"
+                app:layout_constraintEnd_toStartOf="@+id/buttonBackspace"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonBackspace"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/backspace"
+                app:layout_constraintEnd_toStartOf="@id/buttonBracketOpen"
+                app:layout_constraintStart_toEndOf="@id/buttonClear"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonBracketOpen"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/bracket_open"
+                app:layout_constraintEnd_toStartOf="@+id/buttonBracketClose"
+                app:layout_constraintStart_toEndOf="@id/buttonBackspace"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonBracketClose"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/bracket_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buttonBracketOpen"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout1">
+
+            <Button
+                android:id="@+id/buttonSin"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/sin"
+                app:layout_constraintEnd_toStartOf="@+id/buttonCos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonCos"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/cos"
+                app:layout_constraintEnd_toStartOf="@+id/buttonTan"
+                app:layout_constraintStart_toEndOf="@+id/buttonSin"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonTan"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/tan"
+                app:layout_constraintEnd_toStartOf="@+id/buttonLog"
+                app:layout_constraintStart_toEndOf="@+id/buttonCos"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonLog"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/log"
+                app:layout_constraintEnd_toStartOf="@+id/buttonLn"
+                app:layout_constraintStart_toEndOf="@+id/buttonTan"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonLn"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/ln"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonLog"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout2">
+
+            <Button
+                android:id="@+id/buttonFactorial"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/factorial"
+                app:layout_constraintEnd_toStartOf="@+id/buttonPower"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonPower"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/power"
+                app:layout_constraintEnd_toStartOf="@+id/buttonRoot"
+                app:layout_constraintStart_toEndOf="@+id/buttonFactorial"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonRoot"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/root"
+                app:layout_constraintEnd_toStartOf="@+id/buttonInverse"
+                app:layout_constraintStart_toEndOf="@+id/buttonPower"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonInverse"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/inverse"
+                app:layout_constraintEnd_toStartOf="@+id/buttonMod"
+                app:layout_constraintStart_toEndOf="@+id/buttonRoot"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonMod"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/percent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonInverse"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout3">
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_7"
+                app:layout_constraintEnd_toStartOf="@+id/button8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_8"
+                app:layout_constraintEnd_toStartOf="@+id/button9"
+                app:layout_constraintStart_toEndOf="@+id/button7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_9"
+                app:layout_constraintEnd_toStartOf="@id/buttonDivision"
+                app:layout_constraintStart_toEndOf="@+id/button8"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonDivision"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/division"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button9"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout4">
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_4"
+                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_5"
+                app:layout_constraintEnd_toStartOf="@+id/button6"
+                app:layout_constraintStart_toEndOf="@+id/button4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_6"
+                app:layout_constraintEnd_toStartOf="@id/buttonMultiplication"
+                app:layout_constraintStart_toEndOf="@+id/button5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonMultiplication"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/multiplication"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout5">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_1"
+                app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_2"
+                app:layout_constraintEnd_toStartOf="@+id/button3"
+                app:layout_constraintStart_toEndOf="@+id/button1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_3"
+                app:layout_constraintEnd_toStartOf="@id/buttonSubtraction"
+                app:layout_constraintStart_toEndOf="@+id/button2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonSubtraction"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/subtraction"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout6">
+
+            <Button
+                android:id="@+id/buttonPi"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/pi"
+                app:layout_constraintEnd_toStartOf="@+id/button0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button0"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_0"
+                app:layout_constraintEnd_toStartOf="@+id/buttonDot"
+                app:layout_constraintStart_toEndOf="@+id/buttonPi"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonDot"
+                style="@style/primaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/dot"
+                app:layout_constraintEnd_toStartOf="@id/buttonAddition"
+                app:layout_constraintStart_toEndOf="@+id/button0"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonAddition"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/addition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonDot"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout7">
+
+            <Button
+                android:id="@+id/buttonEqual"
+                style="@style/secondaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorSecondary"
+                android:text="@string/equal"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
